@@ -174,6 +174,11 @@ class BDConfig {
 
     const sConfig = JSON.stringify(this.config);
     this.config = JSON.parse(this.doReplace(sConfig, replacements));
+
+    // Also do replacements inside of the profile
+    const sProfile = JSON.stringify(this.profile);
+    this.profile = JSON.parse(this.doReplace(sProfile, replacements));
+
     return replacements;
   };
 
@@ -541,8 +546,7 @@ class BDConfig {
 
     if (!fs.existsSync(configPath)) {
       throw new Error(
-        `Could not locate den config file. Provided URI = "${profileURI}". Localized to "${configPath}" from "${
-          import.meta.url
+        `Could not locate den config file. Provided URI = "${profileURI}". Localized to "${configPath}" from "${import.meta.url
         }".`
       );
     }
