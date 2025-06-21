@@ -14,6 +14,7 @@
   "scripts": {
     "build": "rollup --config",
     "release": "npm run build && np",
+    "prepare": "npm run build",
     "src-pack": "rollup --c src/rollup-config-badger-den.mjs --config-den src/demo-module/src/demo-module:test --config-pack",
     "src-pack-unpack": "rollup --c src/rollup-config-badger-den.mjs --config-den src/demo-module/src/demo-module:test --config-unpack --config-pack",
     "src-unpack-watch": "rollup --watch --c src/rollup-config-badger-den.mjs --config-den src/demo-module/src/demo-module:test --config-unpack",
