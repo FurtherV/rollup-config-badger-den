@@ -4,22 +4,22 @@ import merge from 'rollup-merge-config';
 import postcssImport from 'postcss-import';
 
 const defaultConfig = {
-    inject: false, // Don't inject CSS into <HEAD>
-    extract: true,
-    modules: false,
-    plugins: [
-      // Postcss plugins to use
-      postcssImport(),
-      postcssPresetEnv({
-        autoprefixer:{}
-      }),
-    ],
-    use: ["sass", "less"], // Use sass / dart-sass and less
-    sourceMap: true,
-    minimize: true,
-  }
+  inject: false, // Don't inject CSS into <HEAD>
+  extract: true,
+  modules: false,
+  plugins: [
+    // Postcss plugins to use
+    postcssImport(),
+    postcssPresetEnv({
+      autoprefixer: {}
+    }),
+  ],
+  use: ["sass", "less"], // Use sass / dart-sass and less
+  sourceMap: false,
+  minimize: false,
+}
 
-export default ( config = {}, plugin = cssPlugin) => {
+export default (config = {}, plugin = cssPlugin) => {
   const finalConfig = merge(defaultConfig, config);
   return plugin(finalConfig);
 }
